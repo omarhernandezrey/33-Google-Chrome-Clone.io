@@ -32,6 +32,10 @@ nav .nav-right-section a {
     color: #000000; /* Color del texto negro */
 }
 
+nav .nav-right-section .menu-icon-container {
+    position: relative;
+}
+
 nav .nav-right-section .menu-icon {
     background-image: url('https://static.thenounproject.com/png/756729-200.png'); /* Imagen de fondo del ícono */
     background-repeat: no-repeat; /* No repetir la imagen */
@@ -39,7 +43,68 @@ nav .nav-right-section .menu-icon {
     background-size: contain; /* Ajustar la imagen al contenedor */
     width: 25px; /* Ancho fijo de 25px */
     height: 25px; /* Altura fija de 25px */
+    cursor: pointer;
+    opacity: 0.6;
+    margin-right: 10px;
 }
+
+nav .nav-right-section .menu-icon:hover {
+    opacity: 1;
+}
+
+.google-apps-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 320px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 1000;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.google-apps-menu.active {
+    display: grid;
+}
+
+nav .nav-right-section .google-apps-menu .app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #202124;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin-right: 0; /* Resetear margen de enlaces del nav */
+}
+
+nav .nav-right-section .google-apps-menu .app-item:hover {
+    background-color: #e8f0fe;
+}
+
+/* Selector más específico para sobrescribir estilos globales del nav */
+nav .nav-right-section .google-apps-menu .app-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    border-radius: 0;
+    margin-left: 0;
+}
+
+.app-item span {
+    font-size: 12px;
+    text-align: center;
+    color: #202124;
+}
+
 nav .nav-right-section img {
     border-radius: 50%; /* Imagen redondeada */
     margin-left: 10px; /* Espacio izquierdo de 10px */
@@ -117,48 +182,144 @@ main .main-buttons div {
     display: inline-block; /* Muestra los elementos en línea */
 }
 
-main .main-buttons button {
+main .main-buttons input[type="submit"] {
     height: 36px; /* Altura fija de 36px */
-    background-color: #f2f2f2; /* Color de fondo gris claro */
-    border: 0; /* Sin bordes */
+    background-color: #f8f9fa; /* Color de fondo gris muy claro */
+    border: 1px solid #f8f9fa; /* Borde del mismo color */
     font-size: 14px; /* Tamaño de fuente de 14px */
-    color: #5f6368; /* Color del texto gris */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 0 15px; /* Relleno horizontal de 15px */
-    margin-right: 15px; /* Espacio derecho de 15px */
+    color: #3c4043; /* Color del texto gris oscuro */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 0 16px; /* Relleno horizontal */
+    margin: 11px 4px; /* Margen */
+    cursor: pointer; /* Cursor de mano */
+    font-family: arial, sans-serif;
 }
 
-main .main-buttons button:hover {
-    border: 1px solid #c6c6c6; /* Borde de 1px gris al pasar el mouse */
-    box-shadow: 0 1px 1px #000001; /* Sombra al pasar el mouse */
-    color: #222; /* Cambia el color del texto al pasar el mouse */
+main .main-buttons input[type="submit"]:hover {
+    border: 1px solid #dadce0; /* Borde gris al pasar el mouse */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); /* Sombra sutil */
+    color: #202124; /* Color texto más oscuro */
+    background-color: #f8f9fa;
 }
 
 footer {
-    width: 100%; /* Ancho completo del contenedor */
-    height: 50px; /* Altura fija de 50px */
-    position: absolute; /* Posiciona al final de la página */
-    bottom: 0; /* Alinea al fondo de la página */
-    display: grid; /* Usar grid para organizar el contenido */
-    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
-    align-items: center; /* Alinea verticalmente los elementos */
-    font-size: 13px; /* Tamaño de fuente de 13px */
-    background-color: #f2f2f2; /* Color de fondo gris claro */
-    border-top: 1px solid #e4e4e4; /* Borde superior gris claro */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #f2f2f2;
+    font-size: 14px;
 }
+
+.footer-country {
+    padding: 15px 30px;
+    border-bottom: 1px solid #dadce0;
+    font-size: 15px;
+    color: #70757a;
+    border-top: 1px solid #e4e4e4;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
 footer ul {
-    margin: 10px; /* Espacio alrededor de 10px */
-    list-style: none; /* Elimina las viñetas de la lista */
-    display: flex; /* Usar flexbox */
-    padding-left: 0; /* Elimina el relleno izquierdo */
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-footer .footer-left {
-    justify-self: left; /* Alinea a la izquierda */
-}
-footer .footer-right {
-    justify-self: right; /* Alinea a la derecha */
-}
+
 footer ul li a {
-    margin: 10px; /* Espacio alrededor de 10px */
-    color: #5f6368; /* Color del texto gris */
+    display: block;
+    padding: 15px;
+    color: #70757a;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .footer-links {
+        justify-content: center;
+    }
+    
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav .nav-right-section {
+        width: auto;
+        padding-right: 15px;
+    }
+
+    main {
+        margin-top: 80px; /* Reducir margen superior */
+        padding: 0 20px;
+    }
+
+    main .main-logo {
+        width: 100%;
+        max-width: 530px;
+    }
+
+    main .main-logo img {
+        width: 180px; /* Logo un poco más pequeño */
+    }
+
+    main .main-input {
+        width: 90%; /* Ancho relativo al viewport */
+        max-width: 530px;
+        margin: 0 auto 20px auto; /* Centrado y con margen inferior */
+    }
+
+    main .main-input-container {
+        width: 100%;
+        height: 46px; /* Un poco más alto para facilitar el toque */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave por defecto en móvil */
+        border: 1px solid #dfe1e5;
+    }
+
+    main .main-input input {
+        width: 100%;
+        flex: 1;
+        padding: 0 15px;
+        font-size: 16px; /* Evita zoom automático en iOS */
+        height: 100%;
+    }
+
+    main .main-input .search-icon {
+        margin-left: 12px;
+    }
+
+    main .main-input .micro-icon {
+        margin-right: 12px;
+    }
+
+    main .main-buttons {
+        display: none; /* Ocultar botones en móvil como en la captura */
+    }
+
+    footer {
+        position: relative;
+        height: auto;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
